@@ -1,13 +1,11 @@
 import random as r
 import math as m
 from joblib import Parallel, delayed 
-
-def pi_parallel():
+count=5
+def pi_parallel(total):
  # Number of darts that land inside.
  inside = 0
- # Total number of darts to throw.
- total = 10000
-
+ 
  # Iterate for the number of darts.
  for i in range(0, total):
    # Generate random x, y in [0, 1].
@@ -21,7 +19,11 @@ def pi_parallel():
  pi = (float(inside) / total) * 4
  
  # It works!
- return(pi)
+ #return(pi)
+ print(pi)
 #print(pi_parallel())
 
-Parallel(n_jobs=2, verbose=10)(pi_parallel() for i in range(6))
+
+if __name__ == "__main__":
+ Parallel(n_jobs=2)(delayed(pi_parallel)(10000) for i in range(2))
+ #parallel()(delayed(pi_parallel)() for i in range(5))
