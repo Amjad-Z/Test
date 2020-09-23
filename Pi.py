@@ -1,7 +1,7 @@
 import random as r
 import math as m
 from joblib import Parallel, delayed 
-count=5
+
 def pi_parallel(total):
  # Number of darts that land inside.
  inside = 0
